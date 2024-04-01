@@ -8,6 +8,10 @@ export type ActivityActions={
     type:'set-activeId',
     payload:{id:Activity['id']}
 
+}|{
+    type:'delete-activity',
+    payload:{id:Activity['id']}
+
 }
 
 
@@ -38,6 +42,14 @@ if(action.type === 'set-activeId'){
     return{
         ...state,
         activeId: action.payload.id,
+     
+    }
+}
+
+if(action.type=='delete-activity'){
+    return{
+        ...state,
+        activities: state.activities.filter(activity=>activity.id !== action.payload.id)
      
     }
 }
