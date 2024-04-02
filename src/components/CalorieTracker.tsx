@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import type { Activity } from "../types";
+import CaloriesDisplay from "./CaloriesDisplay";
 
 type CalorieTrackerProps = {
   activities: Activity[];
@@ -33,20 +34,9 @@ const CalorieTracker = ({ activities }: CalorieTrackerProps) => {
         Resumen de Calorias{" "}
       </h2>
       <div className="flex flex-col items-center md:flex-row md:justify-between gap-5 mt-10">
-        <p className="text-white font-bold rounded-full grid grid-cols-1 gap-3 text-center">
-          <span className="font-black text-6xl text-orange">
-            {caloriesConsumed}
-          </span>
-          Consumidas
-        </p>
+        <CaloriesDisplay calories={caloriesConsumed} text={"Consumidas"} />
 
-
-        <p className="text-white font-bold rounded-full grid grid-cols-1 gap-3 text-center">
-          <span className="font-black text-6xl text-orange">
-            {caloriesBurned}
-          </span>
-          Ejercicio
-        </p>
+        <CaloriesDisplay calories={caloriesBurned} text={"Ejercicio"} />
       </div>
     </>
   );
